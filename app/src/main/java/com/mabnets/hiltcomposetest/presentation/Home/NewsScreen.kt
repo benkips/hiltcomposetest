@@ -1,5 +1,6 @@
 package com.mabnets.hiltcomposetest.Utils.composescreens
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -16,7 +17,6 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ListItem
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -26,18 +26,17 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberImagePainter
 import com.mabnets.hiltcomposetest.R
-import com.mabnets.hiltcomposetest.viewmodel.Newsviewmodel
+import com.mabnets.hiltcomposetest.presentation.Home.Newsviewmodel
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun  NewsScreen(viewmodel:Newsviewmodel = hiltViewModel()) {
-    val state = viewmodel.state.value
+fun  NewsScreen(viewmodel: Newsviewmodel = hiltViewModel()) {
     val mContext = LocalContext.current
-    val newsList =viewmodel.search("tuko")
-    Log.d("mydata", "Nestedscrollview:${state.MydataItems.size}")
-    //val newsList by viewModel.getNews().observeAsState(initial = emptyList())
+    val newsitems=viewmodel.state.value
+    Log.d("mydata", "Nestedscrollview:${newsitems.NewsItems.size}")
     LazyColumn{
-        items(state.MydataItems){
+        items(newsitems.NewsItems){
             ListItem {
                 Card(
                     shape = RoundedCornerShape(8.dp),

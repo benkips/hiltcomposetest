@@ -12,12 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.hiltcomposetest.VerticalNestedScrollView
+import com.mabnets.hiltcomposetest.presentation.Home.rememberNestedScrollViewState
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
 import com.mabnets.hiltcomposetest.Utils.composescreens.NewsScreen
+import com.mabnets.hiltcomposetest.presentation.Home.VerticalNestedScrollView
 import com.mabnets.hiltcomposetest.ui.theme.NestedscrollviewTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -83,6 +84,7 @@ fun Nestedscrollview() {
                 val newsfeatures=arrayOf<String>("tuko","kenyans","The star")
                 val pages = (newsfeatures).map { it }
                 val mContext = LocalContext.current
+
 
 
                 Column {

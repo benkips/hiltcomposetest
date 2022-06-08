@@ -1,4 +1,4 @@
-package com.mabnets.hiltcomposetest
+package com.mabnets.hiltcomposetest.presentation.Home
 
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.Animatable

@@ -1,4 +1,4 @@
-package com.example.hiltcomposetest
+package com.mabnets.hiltcomposetest.presentation.Home
 
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.rememberScrollableState
@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.unit.Constraints
-import com.mabnets.hiltcomposetest.NestedScrollViewState
 import kotlin.math.roundToInt
 
 

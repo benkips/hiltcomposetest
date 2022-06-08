@@ -1,5 +1,6 @@
 package com.mabnets.hiltcomposetest.Utils.composescreens
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -28,16 +29,19 @@ import coil.compose.rememberImagePainter
 import com.mabnets.hiltcomposetest.R
 import com.mabnets.hiltcomposetest.viewmodel.Newsviewmodel
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun  NewsScreen(viewmodel:Newsviewmodel = hiltViewModel()) {
-    val state = viewmodel.state.value
+
     val mContext = LocalContext.current
-    val newsList =viewmodel.search("tuko")
-    Log.d("mydata", "Nestedscrollview:${state.MydataItems.size}")
+    viewmodel.search("tuko")
+    val state = viewmodel.stateFlow.value
+    val newsitems=state.data
+    Log.d("mydata", "Nestedscrollview:${state.data?.size}")
     //val newsList by viewModel.getNews().observeAsState(initial = emptyList())
     LazyColumn{
-        items(state.MydataItems){
+        items(newsitems!!){
             ListItem {
                 Card(
                     shape = RoundedCornerShape(8.dp),

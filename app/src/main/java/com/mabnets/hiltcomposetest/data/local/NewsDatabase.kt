@@ -1,8 +1,8 @@
-package com.mabnets.hiltcomposetest.databasestuff
+package com.mabnets.hiltcomposetest.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.mabnets.hiltcomposetest.models.Mydata
+import com.mabnets.hiltcomposetest.data.local.Entity.Mydata
 
 
 @Database(entities = [Mydata::class],version=1)

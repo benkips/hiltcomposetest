@@ -3,7 +3,9 @@ package com.mabnets.e_newskenya.DI
 import android.app.Application
 import androidx.room.Room
 import com.mabnets.hiltcomposetest.Network.ApiInterface
-import com.mabnets.hiltcomposetest.databasestuff.NewsDatabase
+import com.mabnets.hiltcomposetest.data.local.NewsDatabase
+import com.mabnets.hiltcomposetest.data.repositories.Newsrepoimpl
+import com.mabnets.hiltcomposetest.domain.repositories.NewsRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,15 +32,10 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    @Provides
-    @Singleton
-    fun providesApiInterface(retrofit: Retrofit):ApiInterface=
-        retrofit.create(ApiInterface::class.java)
 
     @Provides
     @Singleton
-    fun providesDatabase(app: Application) : NewsDatabase =
-        Room.databaseBuilder(app,NewsDatabase::class.java,"news_db")
-            .build()
-
+    fun provideNewsRepository(api: Retrofit):NewsRepo{
+        return Newsrepoimpl(api)
+    }
 }

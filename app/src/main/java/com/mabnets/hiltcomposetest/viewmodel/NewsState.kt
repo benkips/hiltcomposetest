@@ -1,6 +1,6 @@
 package com.mabnets.hiltcomposetest.viewmodel
 
-import com.mabnets.hiltcomposetest.models.Mydata
+import com.mabnets.hiltcomposetest.data.local.Entity.Mydata
 import com.mabnets.hiltcomposetest.network.Errorcodez
 
 data class NewsState (

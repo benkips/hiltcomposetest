@@ -1,14 +1,11 @@
 package com.mabnets.hiltcomposetest.Repo
 
 
-import androidx.room.withTransaction
 import com.mabnets.hiltcomposetest.Network.ApiInterface
-import com.mabnets.hiltcomposetest.Utils.NetworkBoundResource
-import com.mabnets.hiltcomposetest.databasestuff.NewsDatabase
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class Repostuff @Inject constructor(
+/*class Repostuff @Inject constructor(
     private val apiInterface: ApiInterface,
     private  val db: NewsDatabase
 ){
@@ -29,5 +26,11 @@ class Repostuff @Inject constructor(
 
         }
     )
-}
+}*/
+class Repostuff @Inject constructor (private val apiInterface: ApiInterface){
 
+    suspend fun getSearchresults(query: String) = flow {
+        apiInterface.getnews(query)
+    }
+
+}

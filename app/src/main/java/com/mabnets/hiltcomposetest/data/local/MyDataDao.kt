@@ -1,10 +1,10 @@
-package com.mabnets.hiltcomposetest.databasestuff
+package com.mabnets.hiltcomposetest.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.mabnets.hiltcomposetest.models.Mydata
+import com.mabnets.hiltcomposetest.data.local.Entity.Mydata
 import kotlinx.coroutines.flow.Flow
 
 @Dao

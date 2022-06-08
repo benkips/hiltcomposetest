@@ -1,4 +1,4 @@
-package com.mabnets.hiltcomposetest.models
+package com.mabnets.hiltcomposetest.data.local.Entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

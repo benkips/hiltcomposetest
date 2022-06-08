@@ -1,6 +1,6 @@
 package com.mabnets.hiltcomposetest.Network
 
-import com.mabnets.hiltcomposetest.models.Mydata
+import com.mabnets.hiltcomposetest.data.local.Entity.Mydata
 import retrofit2.http.*
 
 

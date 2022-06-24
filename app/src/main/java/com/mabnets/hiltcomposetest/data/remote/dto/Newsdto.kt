@@ -1,5 +1,6 @@
 package com.mabnets.hiltcomposetest.data.remote.dto
 
+import com.mabnets.hiltcomposetest.data.local.Entity.Newsentity
 import com.mabnets.hiltcomposetest.domain.model.News
 
 data class Newsdto(val id: Int,
@@ -21,5 +22,15 @@ fun Newsdto.tonews(): News {
     )
 
 }
+fun Newsdto.tonewsentity(): Newsentity {
+    return  Newsentity(
+        id = id,
+        links = links,
+        title =title,
+        type = type,
+        description =description,
+        imagelink = imagelink
+    )
 
+}
 

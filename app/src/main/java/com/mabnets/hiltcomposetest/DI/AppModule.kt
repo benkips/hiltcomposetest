@@ -1,8 +1,11 @@
 package com.mabnets.e_newskenya.DI
 
+import android.app.Application
+import androidx.room.Room
 import com.mabnets.hiltcomposetest.data.repositories.Newsrepoimpl
 import com.mabnets.hiltcomposetest.domain.repositories.NewsRepo
 import com.mabnets.hiltcomposetest.Utils.BASE_URL
+import com.mabnets.hiltcomposetest.data.local.NewsDatabase
 import com.mabnets.hiltcomposetest.data.remote.RemoteApi
 import dagger.Module
 import dagger.Provides
@@ -34,7 +37,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNewsRepository(api: RemoteApi):NewsRepo{
-        return Newsrepoimpl(api)
-    }
+    fun providesDatabase(app: Application) : NewsDatabase =
+        Room.databaseBuilder(app,NewsDatabase::class.java,"news_db")
+            .build()
 }

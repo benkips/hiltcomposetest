@@ -33,8 +33,8 @@ import com.mabnets.hiltcomposetest.presentation.Home.Newsviewmodel
 @Composable
 fun  NewsScreen(viewmodel: Newsviewmodel = hiltViewModel()) {
     val mContext = LocalContext.current
-    val newsitems=viewmodel.state.value
-    Log.d("mydata", "Nestedscrollview:${newsitems.NewsItems.size}")
+    val newsitems=viewmodel.state
+    Log.d("Errormsg", "Fromapp:${newsitems.error}")
     LazyColumn{
         items(newsitems.NewsItems){
             ListItem {
